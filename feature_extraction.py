@@ -13,10 +13,11 @@ def extract_hog(image: np.ndarray) -> np.ndarray:
     gray = rgb2gray(image)
     features = hog(
         gray,
-        orientations=9,
-        pixels_per_cell=(32, 32),
-        cells_per_block=(2, 2),
+        pixels_per_cell=(64, 64),
+        cells_per_block=(1, 1),
+        orientations=6,
         block_norm="L2-Hys",
+        transform_sqrt=True
     )
     return features
 
