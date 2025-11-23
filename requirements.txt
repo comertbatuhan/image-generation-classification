@@ -1,3 +1,16 @@
 scikit-image
 numpy
 pandas
+scipy
+scikit-learn
+matplotlib
+seaborn
+diffusers 
+transformers 
+accelerate 
+safetensors 
+huggingface_hub 
+xformers 
+torch 
+torchvision 
+torchaudio

@@ -1,26 +1,25 @@
 # feature_extraction.py
 import numpy as np
 import io
-from skimage.color import rgb2gray
+from skimage.color import rgb2gray, rgb2hsv
 from skimage.feature import hog, local_binary_pattern
+from skimage.transform import resize
 
 
 def extract_hog(image: np.ndarray) -> np.ndarray:
-    """
-    image: RGB uint8 array (H, W, 3)
-    returns: 1D HOG feature vector
-    """
     gray = rgb2gray(image)
-    features = hog(
-        gray,
-        pixels_per_cell=(64, 64),
-        cells_per_block=(1, 1),
-        orientations=6,
-        block_norm="L2-Hys",
-        transform_sqrt=True
-    )
-    return features
+    gray = resize(gray, (128, 128), anti_aliasing=True, preserve_range=True).astype(np.float32)
 
+    feats = hog(
+        gray,
+        pixels_per_cell=(32, 32),   
+        cells_per_block=(2, 2),    
+        orientations=9,            
+        block_norm="L2-Hys",
+        transform_sqrt=True,
+        feature_vector=True
+    )
+    return feats
 
 def extract_lbp(image: np.ndarray, P: int = 8, R: int = 1) -> np.ndarray:
     """
