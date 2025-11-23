@@ -135,6 +135,9 @@ clf_fused, scaler_fused = train_eval_logreg(X_train, X_test, y_train, y_test)
 - All random splits use random_state=42 for reproducibility.
 - Model outputs may vary slightly depending on library versions and hardware.
 
-Author: Batuhan Cömert
-Date: 23 November 2025
-Institution: Boğaziçi University
+
+**Author: Batuhan Cömert**
+
+**Date: 23 November 2025**
+
+**Institution: Boğaziçi University**
